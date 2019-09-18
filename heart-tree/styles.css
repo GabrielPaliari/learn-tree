@@ -1,0 +1,228 @@
+body {
+  background: #fff;
+}
+
+/* optional Container STYLES */
+.chart {
+  height: 400px;
+  margin: 5px;
+  width: 600px;
+}
+
+.Treant > p {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.node-name {
+  font-weight: bold;
+}
+
+.tree-node {
+  padding: 0;
+  width: 80px;
+}
+.tree-node p {
+  display: none;
+}
+
+.Treant .collapse-switch {
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: block;
+  background-color: lightgreen;
+  position: absolute;
+  top: 14px;
+  right: -10px;
+  cursor: pointer;
+  border: none;
+  transition: all 300ms ease;
+}
+.Treant .collapse-switch::before {
+  content: "-";
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 18px;
+}
+.Treant .collapsed .node-element {
+  position: relative;
+  width: 80px;
+  height: 46.1888px;
+  background: lightseagreen;
+  margin: 23.04px auto;
+}
+.Treant .collapsed .node-element::before, .Treant .collapsed .node-element::after {
+  content: "";
+  position: absolute;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}
+.Treant .collapsed .node-element::before {
+  bottom: 100%;
+  border-bottom: 23.04px solid lightseagreen;
+}
+.Treant .collapsed .node-element::after {
+  top: 100%;
+  border-top: 23.04px solid lightseagreen;
+}
+.Treant .collapsed .collapse-switch {
+  background-color: lightgreen;
+  transition: all 300ms ease;
+}
+.Treant .collapsed .collapse-switch::before {
+  content: "+";
+}
+
+.tree-node.selected .node-element {
+  cursor: pointer;
+  position: relative;
+  width: 80px;
+  height: 46.1888px;
+  background: #123abd;
+  margin: 23.04px auto;
+}
+.tree-node.selected .node-element::before, .tree-node.selected .node-element::after {
+  content: "";
+  position: absolute;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}
+.tree-node.selected .node-element::before {
+  bottom: 100%;
+  border-bottom: 23.04px solid #123abd;
+}
+.tree-node.selected .node-element::after {
+  top: 100%;
+  border-top: 23.04px solid #123abd;
+}
+.tree-node.selected .node-element .inner-hexagon {
+  z-index: 1;
+  top: 3px;
+  position: relative;
+  width: 70px;
+  height: 40.4152px;
+  background: #2a3;
+  margin: 20.16px auto;
+}
+.tree-node.selected .node-element .inner-hexagon::before, .tree-node.selected .node-element .inner-hexagon::after {
+  content: "";
+  position: absolute;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+}
+.tree-node.selected .node-element .inner-hexagon::before {
+  bottom: 100%;
+  border-bottom: 20.16px solid #2a3;
+}
+.tree-node.selected .node-element .inner-hexagon::after {
+  top: 100%;
+  border-top: 20.16px solid #2a3;
+}
+.tree-node.selected .node-element .inner-hexagon .node-logo {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.tree-node.selected .node-element .inner-hexagon .node-logo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.tree-node .node-element {
+  cursor: pointer;
+  position: relative;
+  width: 80px;
+  height: 46.1888px;
+  background: #888;
+  margin: 23.04px auto;
+}
+.tree-node .node-element::before, .tree-node .node-element::after {
+  content: "";
+  position: absolute;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}
+.tree-node .node-element::before {
+  bottom: 100%;
+  border-bottom: 23.04px solid #888;
+}
+.tree-node .node-element::after {
+  top: 100%;
+  border-top: 23.04px solid #888;
+}
+.tree-node .node-element .inner-hexagon {
+  z-index: 1;
+  top: 3px;
+  position: relative;
+  width: 70px;
+  height: 40.4152px;
+  background: #ddd;
+  margin: 20.16px auto;
+}
+.tree-node .node-element .inner-hexagon::before, .tree-node .node-element .inner-hexagon::after {
+  content: "";
+  position: absolute;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+}
+.tree-node .node-element .inner-hexagon::before {
+  bottom: 100%;
+  border-bottom: 20.16px solid #ddd;
+}
+.tree-node .node-element .inner-hexagon::after {
+  top: 100%;
+  border-top: 20.16px solid #ddd;
+}
+.tree-node .node-element .inner-hexagon .node-logo {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.tree-node .node-element .inner-hexagon .node-logo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#node-detail {
+  width: 400px;
+  height: 80vh;
+  position: absolute;
+  right: 5vh;
+  top: 5vh;
+  background-color: #999;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+#node-detail .detail {
+  color: white;
+  padding: 2rem;
+}
+#node-detail .detail h2 {
+  margin-top: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

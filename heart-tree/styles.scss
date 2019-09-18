@@ -1,0 +1,152 @@
+body {
+  background: #fff;
+}
+/* optional Container STYLES */
+.chart {
+  height: 400px;
+  margin: 5px;
+  width: 600px;
+}
+.Treant > p {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+    Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}
+.node-name {
+  font-weight: bold;
+}
+
+$node-width: 80px;
+
+.tree-node {
+  padding: 0;
+  width: $node-width;
+  p {
+    display: none;
+  }
+}
+
+@mixin hexagon($hexagon-width, $hexagon-color) {
+  position: relative;
+  width: $hexagon-width;
+  height: 0.57736 * $hexagon-width;
+  background: $hexagon-color;
+  margin: 0.288 * $hexagon-width auto;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-left: 0.5 * $hexagon-width solid transparent;
+    border-right: 0.5 * $hexagon-width solid transparent;
+  }
+  &::before {
+    bottom: 100%;
+    border-bottom: 0.288 * $hexagon-width solid $hexagon-color;
+  }
+  &::after {
+    top: 100%;
+    border-top: 0.288 * $hexagon-width solid $hexagon-color;
+  }
+}
+
+@mixin node-element($node-width, $outer-color, $inner-color) {
+  cursor: pointer;
+  @include hexagon($node-width, $outer-color);
+  .inner-hexagon {
+    z-index: 1;
+    top: 3px;
+    @include hexagon($node-width - 10px, $inner-color);
+    .node-logo {
+      width: $node-width / 2;
+      height: $node-width / 2;
+      position: relative;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.Treant {
+  .collapse-switch {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    background-color: lightgreen;
+    position: absolute;
+    top: 14px;
+    right: -10px;
+    cursor: pointer;
+    border: none;
+    transition: all 300ms ease;
+    &::before {
+      content: '-';
+      color: white;
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      text-align: center;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  .collapsed {
+    .node-element {
+      @include hexagon($node-width, lightseagreen);
+    }
+    .collapse-switch {
+      background-color: lightgreen;
+      transition: all 300ms ease;
+      &::before {
+        content: '+';
+      }
+    }
+  }
+}
+
+$inner-color: #ddd;
+$outer-color: #888;
+.tree-node {
+  &.selected {
+    $inner-color: #2a3;
+    $outer-color: #123abd;
+    .node-element {
+      @include node-element($node-width, $outer-color, $inner-color);
+    }
+  }
+  .node-element {
+    @include node-element($node-width, $outer-color, $inner-color);
+  }
+}
+
+#node-detail {
+  width: 400px;
+  height: 80vh;
+  position: absolute;
+  right: 5vh;
+  top: 5vh;
+  background-color: #999;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  .detail {
+    color: white;
+    padding: 2rem;
+    h2 {
+      margin-top: 0;
+    }
+  }
+}
