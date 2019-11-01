@@ -1,0 +1,290 @@
+body {
+  background: #fff;
+  margin: 0;
+}
+/* optional Container STYLES */
+$gl-border-color: gray;
+$padding: 10px;
+$container-bg-color: black;
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .col-wrapper {
+    height: 100%;
+    width: calc(50% - 10px);
+    padding: $padding;
+    &.-right {
+      padding: 0;
+      width: 50%;
+    }
+  }
+  #resizeable {
+    height: 100vh;
+    width: 5px;
+    background-color: lightgray;
+    cursor: col-resize;
+  }
+}
+.tree-container {
+  height: 95vh;
+  width: calc(100%);
+  overflow: auto;
+  border: 1px solid $gl-border-color;
+  border-radius: 5px;
+  background-color: $container-bg-color;
+  cursor: grab;
+  position: relative;
+  &:active {
+    cursor: grabbing;
+  }
+  .chart {
+    height: 100%;
+    width: 100%;
+    transform: scale(var(--tree-scale));
+    overflow: visible !important;
+    svg {
+      overflow: visible !important;
+    }
+  }
+  .slidecontainer {
+    position: absolute;
+    border-radius: 6px 6px 0 0;
+    background-color: $container-bg-color !important;
+    font-size: 20px;
+    bottom: 0;
+    color: white;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    .zoom {
+      margin: 0 4px 4px 4px;
+    }
+    .minus {
+      font-size: 24px;
+    }
+  }
+}
+#node-detail {
+  width: 100%;
+  height: 95vh;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  overflow: auto;
+  .detail {
+    color: #21242c;
+    padding: 1rem 2rem;
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #21242c;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .description {
+      font-size: 18px;
+    }
+    .todo-list {
+      .link-item {
+        .desc {
+        }
+        .link {
+        }
+      }
+    }
+  }
+}
+
+.toggle-complete-div {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  #toggle-complete {
+    font-size: 20px;
+  }
+}
+
+.Treant > p {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+    Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}
+.node-name {
+  font-weight: bold;
+}
+
+$node-width: 80px;
+$border-width: 6px;
+
+.tree-node {
+  padding: 0;
+  p {
+    display: none;
+  }
+}
+
+@mixin hexagon($hexagon-width, $hexagon-color) {
+  $sqrt3: 1.73205080757;
+  position: relative;
+  width: $hexagon-width;
+  height: $sqrt3 * $hexagon-width / 3;
+  background: $hexagon-color;
+  margin: ($sqrt3 * $hexagon-width / 6) auto;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-left: 0.5 * $hexagon-width solid transparent;
+    border-right: 0.5 * $hexagon-width solid transparent;
+  }
+  &::before {
+    bottom: 100%;
+    border-bottom: ($sqrt3 * $hexagon-width / 6) solid $hexagon-color;
+  }
+  &::after {
+    top: 100%;
+    border-top: ($sqrt3 * $hexagon-width / 6) solid $hexagon-color;
+  }
+}
+
+@mixin node-circle($node-width, $bg-color, $border-color, $border-width) {
+  cursor: pointer;
+  width: $node-width + 2 * $border-width;
+  height: $node-width + 2 * $border-width;
+  .inner {
+    z-index: 1;
+    top: $border-width;
+    border: $border-width solid $border-color;
+    width: $node-width;
+    height: $node-width;
+    border-radius: 50%;
+    background-color: $bg-color;
+    .node-logo {
+      width: $node-width / 2;
+      height: $node-width / 2;
+      position: relative;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// hexagon node
+@mixin node-hexagon($node-width, $outer-color, $inner-color) {
+  cursor: pointer;
+  @include hexagon($node-width, $outer-color);
+  .inner {
+    z-index: 1;
+    top: 3px;
+    @include hexagon($node-width - 10px, $inner-color);
+    .node-logo {
+      width: $node-width / 2;
+      height: $node-width / 2;
+      position: relative;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// hexagon selected node
+// $inner-color: #ddd;
+// $outer-color: #888;
+.tree-node {
+  .node-element {
+    --bg-color: #ddd;
+    --border-color: #aaa;
+    &.selected {
+      --border-color: darkcyan;
+    }
+    &.completed {
+      .node-logo {
+        filter: none;
+      }
+      --border-color: white;
+    }
+    .node-logo {
+      filter: grayscale(1);
+    }
+    @include node-circle(
+      $node-width,
+      var(--bg-color),
+      var(--border-color),
+      $border-width
+    );
+  }
+  .is-root {
+    --bg-color: #9164cd;
+    --border-color: white;
+    @include node-hexagon(
+      $node-width * 1.1,
+      var(--border-color),
+      var(--bg-color)
+    );
+  }
+}
+
+.Treant {
+  .collapse-switch {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    background-color: lightgreen;
+    position: absolute;
+    top: 14px;
+    right: -10px;
+    cursor: pointer;
+    border: none;
+    transition: all 300ms ease;
+    &::before {
+      content: '-';
+      color: white;
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      text-align: center;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  .collapsed {
+    .collapse-switch {
+      background-color: lightgreen;
+      transition: all 300ms ease;
+      &::before {
+        content: '+';
+      }
+    }
+  }
+}
+@import 'auth-modal';

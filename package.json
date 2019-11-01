@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/fperucic/treant-js#readme",
   "dependencies": {
+    "firebaseui": "^4.2.0",
     "sass": "^1.22.12"
   }
 }

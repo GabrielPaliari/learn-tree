@@ -1,0 +1,345 @@
+body {
+  background: #fff;
+  margin: 0;
+}
+
+/* optional Container STYLES */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .col-wrapper {
+  height: 100%;
+  width: calc(50% - 10px);
+  padding: 10px;
+}
+.container .col-wrapper.-right {
+  padding: 0;
+  width: 50%;
+}
+.container #resizeable {
+  height: 100vh;
+  width: 5px;
+  background-color: lightgray;
+  cursor: col-resize;
+}
+
+.tree-container {
+  height: 95vh;
+  width: calc(100%);
+  overflow: auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: black;
+  cursor: grab;
+  position: relative;
+}
+.tree-container:active {
+  cursor: grabbing;
+}
+.tree-container .chart {
+  height: 100%;
+  width: 100%;
+  transform: scale(var(--tree-scale));
+  overflow: visible !important;
+}
+.tree-container .chart svg {
+  overflow: visible !important;
+}
+.tree-container .slidecontainer {
+  position: absolute;
+  border-radius: 6px 6px 0 0;
+  background-color: black !important;
+  font-size: 20px;
+  bottom: 0;
+  color: white;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+.tree-container .slidecontainer .zoom {
+  margin: 0 4px 4px 4px;
+}
+.tree-container .slidecontainer .minus {
+  font-size: 24px;
+}
+
+#node-detail {
+  width: 100%;
+  height: 95vh;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
+  overflow: auto;
+}
+#node-detail .detail {
+  color: #21242c;
+  padding: 1rem 2rem;
+}
+#node-detail .detail .title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #21242c;
+  margin-bottom: 0.5rem;
+}
+#node-detail .detail .subtitle {
+  font-size: 20px;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+#node-detail .detail .description {
+  font-size: 18px;
+}
+.toggle-complete-div {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.toggle-complete-div #toggle-complete {
+  font-size: 20px;
+}
+
+.Treant > p {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.node-name {
+  font-weight: bold;
+}
+
+.tree-node {
+  padding: 0;
+}
+.tree-node p {
+  display: none;
+}
+
+.tree-node .node-element {
+  --bg-color: #ddd;
+  --border-color: #aaa;
+  cursor: pointer;
+  width: 92px;
+  height: 92px;
+}
+.tree-node .node-element.selected {
+  --border-color: darkcyan;
+}
+.tree-node .node-element.completed {
+  --border-color: white;
+}
+.tree-node .node-element.completed .node-logo {
+  filter: none;
+}
+.tree-node .node-element .node-logo {
+  filter: grayscale(1);
+}
+.tree-node .node-element .inner {
+  z-index: 1;
+  top: 6px;
+  border: 6px solid var(--border-color);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+}
+.tree-node .node-element .inner .node-logo {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.tree-node .node-element .inner .node-logo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.tree-node .is-root {
+  --bg-color: #9164cd;
+  --border-color: white;
+  cursor: pointer;
+  position: relative;
+  width: 88px;
+  height: 50.8068236887px;
+  background: var(--border-color);
+  margin: 25.4034118444px auto;
+}
+.tree-node .is-root::before, .tree-node .is-root::after {
+  content: "";
+  position: absolute;
+  border-left: 44px solid transparent;
+  border-right: 44px solid transparent;
+}
+.tree-node .is-root::before {
+  bottom: 100%;
+  border-bottom: 25.4034118444px solid var(--border-color);
+}
+.tree-node .is-root::after {
+  top: 100%;
+  border-top: 25.4034118444px solid var(--border-color);
+}
+.tree-node .is-root .inner {
+  z-index: 1;
+  top: 3px;
+  position: relative;
+  width: 78px;
+  height: 45.0333209968px;
+  background: var(--bg-color);
+  margin: 22.5166604984px auto;
+}
+.tree-node .is-root .inner::before, .tree-node .is-root .inner::after {
+  content: "";
+  position: absolute;
+  border-left: 39px solid transparent;
+  border-right: 39px solid transparent;
+}
+.tree-node .is-root .inner::before {
+  bottom: 100%;
+  border-bottom: 22.5166604984px solid var(--bg-color);
+}
+.tree-node .is-root .inner::after {
+  top: 100%;
+  border-top: 22.5166604984px solid var(--bg-color);
+}
+.tree-node .is-root .inner .node-logo {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.tree-node .is-root .inner .node-logo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Treant .collapse-switch {
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: block;
+  background-color: lightgreen;
+  position: absolute;
+  top: 14px;
+  right: -10px;
+  cursor: pointer;
+  border: none;
+  transition: all 300ms ease;
+}
+.Treant .collapse-switch::before {
+  content: "-";
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 18px;
+}
+.Treant .collapsed .collapse-switch {
+  background-color: lightgreen;
+  transition: all 300ms ease;
+}
+.Treant .collapsed .collapse-switch::before {
+  content: "+";
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  align-items: center;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Basic example</title>
+    <link rel="stylesheet" href="../Treant.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Montserrat:300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+      <div class="col-wrapper -left">
+        <div class="tree-container">
+          <div class="chart" id="heart-tree"></div>
+          <div class="slidecontainer">
+            <span class="zoom minus">-</span>
+            <input
+              type="range"
+              min="1"
+              max="30"
+              value="10"
+              class="slider"
+              id="tree-scale"
+            />
+            <span class="zoom">+</span>
+          </div>
+        </div>
+      </div>
+      <div id="resizeable"></div>
+      <div class="col-wrapper -right">
+        <div id="node-detail"></div>
+        <div class="toggle-complete-div">
+          <input
+            id="toggle-complete"
+            type="checkbox"
+            onclick="toggleCompleteNode(undefined, this.checked)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <div id="firebaseui-auth-container">
+    
+      <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+          <form>
+            <input type="email" name="email" id="email" />
+            <input type="password" name="password" id="password" />
+            <button type="button" onclick="login()">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <h3>Modal Footer</h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <script src="./vendor/raphael.js"></script>
+    <script src="./vendor/hammer.min.js"></script>
+    <script src="Treant.js"></script>
+    <script src="heart-tree.js"></script>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    
+    <script src="auth.js"></script>
+  </body>
+</html>
