@@ -271,6 +271,7 @@ body {
   left: 0;
   top: 0;
   align-items: center;
+  align-content: center;
   width: 100%;
   /* Full width */
   height: 100%;
@@ -281,6 +282,10 @@ body {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+}
+
+.firebaseui-container {
+  margin: auto;
 }
 
 /* Modal Header */

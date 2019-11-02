@@ -44,47 +44,35 @@
         </div>
       </div>
     </div>
+    <button type="button" onclick="logout()">logout</button>
 
-    <!-- <button id="myBtn">Open Modal</button> -->
 
-    <div id="firebaseui-auth-container">
-    
-      <!-- Auth Modal -->
     <div id="authModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2>Modal Header</h2>
-        </div>
-        <div class="modal-body">
-          <form>
-            <input type="email" name="email" id="email" />
-            <input type="password" name="password" id="password" />
-            <button type="button" onclick="login()">Login</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <h3>Modal Footer</h3>
-        </div>
+      <div class="firebaseui-container">
+        <div id="firebaseui-auth-container">  
       </div>
     </div>
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+    />
 
     <script src="./vendor/raphael.js"></script>
     <script src="./vendor/hammer.min.js"></script>
-    <script src="Treant.js"></script>
-    <script src="heart-tree.js"></script>
-    
+    <script src="Treant.js"></script>    
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    
+
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+
     <script src="auth.js"></script>
+    <script src="heart-tree.js"></script>
   </body>
 </html>

@@ -1,0 +1,134 @@
+{
+  "node-tree": [
+    {
+      "nodeName": "root",
+      "HTMLid": "root",
+      "content": {
+        "title": "Bem vindo(a) a He4rt Devs Roadmap!",
+        "subtitle": "A estrada de aprendizado da programação",
+        "description": "Nessa árvore você tem um roadmap com todas as coisas legais que um programador front end deve saber. Cadastre-se na comunidade da he4rt para saber mais",
+        "links": [
+          {
+            "description": "Link da comunidade:",
+            "href": "https: //www.google.com"
+          }
+        ]
+      },
+      "style": {
+        "nodeClass": "is-root",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/heart_logo.jpg?alt=media&token=18def0ec-49c9-4504-b894-a74668ed6d05"
+      }
+    },
+    {
+      "nodeName": "html",
+      "HTMLid": "html",
+      "parent": "root",
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/html_logo.png?alt=media&token=864f5a24-3fef-4e36-b5f3-bcbce7a27695"
+      }
+    },
+    {
+      "nodeName": "css",
+      "HTMLid": "css",
+      "parent": "root",
+      "content": {
+        "title": "CSS",
+        "subtitle": "Cascading style sheets",
+        "description": "Descrição bem legal. Essa é pra ficar bonitinho",
+        "completed": true,
+        "links": [
+          {
+            "description": "Link bem legal",
+            "href": "https: //www.google.com"
+          },
+          {
+            "description": "Link bem legal",
+            "href": "https: //www.google.com"
+          }
+        ]
+      },
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/css_logo.png?alt=media&token=f1596469-9753-4b58-a612-63abbe751705"
+      }
+    },
+    {
+      "nodeName": "css-c",
+      "HTMLid": "css-c",
+      "parent": "css",
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/css_logo.png?alt=media&token=f1596469-9753-4b58-a612-63abbe751705"
+      }
+    },
+    {
+      "nodeName": "js",
+      "HTMLid": "js",
+      "parent": "root",
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/js_logo.png?alt=media&token=ae7b9393-5ca7-441b-bb4a-c9d15310a96a"
+      }
+    },
+    {
+      "nodeName": "js-arrays",
+      "HTMLid": "js-arrays",
+      "parent": "js",
+      "content": {
+        "title": "Javaescrito",
+        "subtitle": "Uma linguagem muito boa mesmo",
+        "description": "<p>Linguagem bem legal criada em algum dia</p> <p>e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia</p> e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:Linguagem bem legal criada em algum dia e usada pra várias coisas. Acessar links abaixo pra saber mais:",
+        "links": [
+          {
+            "description": "Link bem legal",
+            "href": "https: //www.google.com"
+          },
+          {
+            "description": "Link bem legal",
+            "href": "https: //www.google.com"
+          },
+          {
+            "description": "Link bem legal",
+            "href": "https: //www.google.com"
+          },
+          {
+            "description": "Link bem legal",
+            "href": "https: //www.google.com"
+          }
+        ]
+      },
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/js_logo.png?alt=media&token=ae7b9393-5ca7-441b-bb4a-c9d15310a96a"
+      }
+    },
+    {
+      "nodeName": "js-arrays2",
+      "HTMLid": "js-arrays2",
+      "parent": "js",
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/js_logo.png?alt=media&token=ae7b9393-5ca7-441b-bb4a-c9d15310a96a"
+      }
+    },
+    {
+      "nodeName": "arraysa",
+      "HTMLid": "arraysa",
+      "parent": "arrays",
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/js_logo.png?alt=media&token=ae7b9393-5ca7-441b-bb4a-c9d15310a96a"
+      }
+    },
+    {
+      "nodeName": "functionss",
+      "HTMLid": "functionss",
+      "parent": "js",
+      "style": {
+        "nodeClass": "node-element",
+        "logoSrc": "https://firebasestorage.googleapis.com/v0/b/learn-tree.appspot.com/o/js_logo.png?alt=media&token=ae7b9393-5ca7-441b-bb4a-c9d15310a96a"
+      }
+    }
+  ]
+}
