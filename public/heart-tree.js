@@ -10,6 +10,27 @@ function buildNodeHtml(node) {
 `;
   return nodeHtml;
 }
+
+const toggleCompleteNode = (node, checked) => {
+  selectedNode = node ? node : this.selectedNode;
+  if (selectedNode.nodeName === 'root') {
+    return;
+  }
+  if (selectedNode.content) {
+    selectedNode.content.completed = checked;
+  }
+  let nodeElem = document.getElementById(selectedNode.nodeName);
+  if (!nodeElem) {
+    return;
+  }
+  nodeElem = nodeElem.querySelector('.node-element');
+  if (checked) {
+    nodeElem.classList.add('completed');
+    return;
+  }
+  nodeElem.classList.remove('completed');
+};
+
 async function main() {
   // Tree configuration
   var config = {
@@ -205,26 +226,6 @@ async function main() {
     const nodeContent = this[node.id].content;
     const completed = nodeContent ? nodeContent.completed : false;
     document.getElementById('toggle-complete').checked = completed;
-  };
-
-  const toggleCompleteNode = (node, checked) => {
-    selectedNode = node ? node : this.selectedNode;
-    if (selectedNode.nodeName === 'root') {
-      return;
-    }
-    if (selectedNode.content) {
-      selectedNode.content.completed = checked;
-    }
-    let nodeElem = document.getElementById(selectedNode.nodeName);
-    if (!nodeElem) {
-      return;
-    }
-    nodeElem = nodeElem.querySelector('.node-element');
-    if (checked) {
-      nodeElem.classList.add('completed');
-      return;
-    }
-    nodeElem.classList.remove('completed');
   };
 
   nodeArray.forEach(node => {

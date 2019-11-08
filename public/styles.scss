@@ -6,7 +6,7 @@ body {
 $gl-border-color: gray;
 $padding: 10px;
 $container-bg-color: black;
-.container {
+.page-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -287,4 +287,5 @@ $border-width: 6px;
     }
   }
 }
-@import 'auth-modal';
+@import 'auth';
+@import 'node-create';
